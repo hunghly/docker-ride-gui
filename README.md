@@ -1,2 +1,2 @@
 # README
-Dockerfile for creating a docker image containing RIDE (Robot-framework IDE) and a GUI accessible through browser
+Dockerfile for creating a docker image containing RIDE (Robot-framework IDE) and a GUI interface

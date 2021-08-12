@@ -24,9 +24,26 @@ RUN pip install psutil && \
     pip install -U --pre robotframework-ride
 
 # Install SeleniumLibraries
-RUN pip install --upgrade robotframework-seleniumlibrary && \
-    pip install --upgrade robotframework-selenium2library
+RUN pip install --upgrade robotframework-seleniumlibrary
 
+# Install firefox and chrome
+RUN apt-get -y install firefox \
+    libcanberra-gtk-module \
+    libcanberra-gtk3-module \
+    wget
+RUN cd /tmp && \
+    apt-get install -y fonts-liberation xdg-utils && \
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
+    dpkg -i google-chrome-stable_current_amd64.deb
 
+RUN sed -i -e 's/chrome" "$@"/chrome" "$@" --no-sandbox --disable-dev-shm-usage/g' /opt/google/chrome/google-chrome
+
+# Web driver manager installs needed browser drivers
+RUN pip install webdrivermanager && \
+    webdrivermanager firefox chrome --linkpath /usr/local/bin
+
+RUN useradd -ms /bin/bash robotuser
+USER robotuser 
+WORKDIR /home/robotuser
 
 CMD ["ride.py"]
