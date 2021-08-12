@@ -7,10 +7,14 @@ ${number}         100
 
 *** Test Cases ***
 TC1
-    Test Browser
+    Test Chrome
     Close Browser
 
 TC2
+    Test Firefox
+    Close Browser
+
+TC3
     [Documentation]    Using variables
     [Tags]    TC2
     ${a}    Set Variable    Hi
