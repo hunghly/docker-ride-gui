@@ -6,15 +6,15 @@ Resource          resources/browseropen.robot
 ${number}         100
 
 *** Test Cases ***
-TC1
+Test Chrome
     Test Chrome
     Close Browser
 
-TC2
+Test Firefox
     Test Firefox
     Close Browser
 
-TC3
+Test Variables
     [Documentation]    Using variables
     [Tags]    TC2
     ${a}    Set Variable    Hi
