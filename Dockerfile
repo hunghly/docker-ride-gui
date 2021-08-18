@@ -56,6 +56,9 @@ RUN sed -i -e 's/chrome" "$@"/chrome" "$@" --no-sandbox --disable-dev-shm-usage/
 RUN pip install webdrivermanager && \
     webdrivermanager firefox chrome --linkpath /usr/local/bin
 
+# Replace old wxPython file to fix locale bug
+COPY application.py /usr/local/lib/python3.8/dist-packages/robotide/application/application.py
+
 RUN mkdir -p /opt/RIDE
 WORKDIR /opt/RIDE
 
