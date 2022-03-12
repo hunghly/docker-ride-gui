@@ -1,5 +1,5 @@
 # README
-This image allows users to start up RIDE and execute Robotframework tests. It will automatically grab the required Chrome/Firefox drivers needed to do Selenium testing.
+This image allows users to start up RIDE and execute Robotframework tests. It will automatically grab the required Chrome/Firefox drivers needed to do Selenium testing. May only work on Linux servers.
 
 Requires X11 Server installed.
 Verify your X server is accepting from any host by using xhost + in terminal
